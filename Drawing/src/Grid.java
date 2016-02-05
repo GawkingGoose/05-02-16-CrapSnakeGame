@@ -39,15 +39,17 @@ public class Grid {
 	}
 	
 	private void removeSnakeDifferance(List<Point> snake){
-//		snakePosition.retainAll(snake);//need to set the removed to empty
-		for (Point point : snake) {
-			for (Point point2 : snakePosition) {
-				if(!point.equals(point)){
-					setNodeState(point2.x, point.y, NodeState.empty);
-					snakePosition.remove(point2);
-				}
-			}
+		for (Point point : snakePosition) {
+			setNodeState(point.x, point.y, NodeState.empty);
 		}
+		for (Point point : snake) {
+			setNodeState(point.x, point.y, NodeState.empty);
+		}
+		snakePosition = snake;
+		for (Point point : snakePosition) {
+			setNodeState(point.x, point.y, NodeState.snake);
+		}
+		System.out.println( snakePosition.size());
 	}
 	
 	public void setRandomFoodPosition(){

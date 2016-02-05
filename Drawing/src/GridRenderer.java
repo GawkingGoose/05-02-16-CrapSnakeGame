@@ -47,9 +47,10 @@ public class GridRenderer extends JComponent {
 			int y = border;
 			for (int j = 0; j < nodes[0].length; j++) {
 				if(nodes[i][j].equals(NodeState.snake)){
-					g.drawOval( i + width + x , j + width + y , width , width ); 
+//					g.drawOval( i + width + x , j + width + y , width , width ); 
 				}else if(nodes[i][j].equals(NodeState.food)){
-					g.drawRect( i + width + x , j + width + y , width , width ); 
+//					g.drawRect( i + width + x , j + width + y , width , width ); 
+					g.drawOval( i + width + x , j + width + y , width , width ); 
 				}else{
 					g.drawRect( i + width + x , j + width + y , width , width ); 
 				}

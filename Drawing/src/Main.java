@@ -28,14 +28,18 @@ public class Main {
 			NodeState state = grid.setSnakePosition(snake.snakeNewRandomMove(score));
 			System.out.println(state);
 			if(state.equals(NodeState.empty)){
-				continue;
+//				continue;
 			}else if(state.equals(NodeState.food)){
 				score++;
 			}else if(state.equals(NodeState.snake)){
 				run = false;
 			}
-			window.revalidate();
 			window.repaint();
+			try{
+			  Thread.sleep(1000);
+			}catch(InterruptedException ex){
+			  System.out.println("thread broke");
+			}
 		}
 		
 		
