@@ -1,27 +1,6 @@
-import java.awt.Color;
-import java.awt.Composite;
-import java.awt.Font;
-import java.awt.FontMetrics;
+
+
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GraphicsConfiguration;
-import java.awt.Image;
-import java.awt.Paint;
-import java.awt.Rectangle;
-import java.awt.RenderingHints;
-import java.awt.Shape;
-import java.awt.Stroke;
-import java.awt.RenderingHints.Key;
-import java.awt.font.FontRenderContext;
-import java.awt.font.GlyphVector;
-import java.awt.geom.AffineTransform;
-import java.awt.image.BufferedImage;
-import java.awt.image.BufferedImageOp;
-import java.awt.image.ImageObserver;
-import java.awt.image.RenderedImage;
-import java.awt.image.renderable.RenderableImage;
-import java.text.AttributedCharacterIterator;
-import java.util.Map;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -47,11 +26,12 @@ public class GridRenderer extends JComponent {
 			int y = border;
 			for (int j = 0; j < nodes[0].length; j++) {
 				if(nodes[i][j].equals(NodeState.snake)){
+					System.out.println("drawSnake " +i+" "+j);
 //					g.drawOval( i + width + x , j + width + y , width , width ); 
 				}else if(nodes[i][j].equals(NodeState.food)){
 //					g.drawRect( i + width + x , j + width + y , width , width ); 
 					g.drawOval( i + width + x , j + width + y , width , width ); 
-				}else{
+				}else if(nodes[i][j].equals(NodeState.empty)){
 					g.drawRect( i + width + x , j + width + y , width , width ); 
 				}
 				y += width;

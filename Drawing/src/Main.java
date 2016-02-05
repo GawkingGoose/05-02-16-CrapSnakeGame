@@ -25,10 +25,16 @@ public class Main {
 		boolean run = true;
 		int score = 0;
 		while (run) {
-			NodeState state = grid.setSnakePosition(snake.snakeNewRandomMove(score));
+			
+			//ADd in a way to get direction\/\/\/
+			 
+//			NodeState state = grid.setSnakePosition(snake.snakeNewRandomMove(score));//random for testing
+			NodeState state = grid.setSnakePosition(snake.snakeNewMove(score, Direction.right));//direction need an input method
+			
+			
 			System.out.println(state);
 			if(state.equals(NodeState.empty)){
-//				continue;
+				//Do nothing
 			}else if(state.equals(NodeState.food)){
 				score++;
 			}else if(state.equals(NodeState.snake)){
@@ -42,7 +48,9 @@ public class Main {
 			}
 		}
 		
-		
+		if(!run){
+			System.out.println("END GAME");
+		}
 		
 	}
 
