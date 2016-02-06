@@ -9,6 +9,8 @@ public class Snake {
 	
 	List<Point> snake;
 	
+	int score = 0;
+	
 	public Snake(){
 		snake = new ArrayList<Point>();
 		snake.add(new Point(5,5));
@@ -30,8 +32,10 @@ public class Snake {
 		}else if(dir.equals(Direction.left)){
 			x = -1;
 		}
-		
-		snake.remove(0);
+		if(score == this.score){
+			snake.remove(0);
+		}
+		this.score = score;
 		snake.add(new Point((int) snake.get(snake.size()-1).getX() + x,(int) snake.get(snake.size()-1).getY() + y));
 		return snake;
 	}

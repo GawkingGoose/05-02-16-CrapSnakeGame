@@ -46,8 +46,11 @@ public class Grid {
 		}
 		setAllEmpty();
 		boolean food = false;
-//		for (Point point : snake) {
+		if(checkSnakeOverlap(snake)){
+//			return NodeState.snake;
+		}
 		Point point = snake.get(snake.size()-1);
+//		System.out.println("is "+getNodeState(point.x,point.y)+"  -  "+ getNodeState(point.x,point.y).equals(NodeState.snake));
 			if(getNodeState(point.x,point.y).equals(NodeState.snake)){
 				return NodeState.snake;
 			}
@@ -62,6 +65,16 @@ public class Grid {
 			return NodeState.food;
 		}
 		return NodeState.empty;
+	}
+	
+	private boolean checkSnakeOverlap(List<Point> snake){
+		Point pointNew = snake.get(snake.size()-1);
+		for (Point point : snakePosition) {
+			if(pointNew.equals(point)){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	private void removeSnakeDifferance(List<Point> snake){
