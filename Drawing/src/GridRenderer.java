@@ -20,19 +20,20 @@ public class GridRenderer extends JComponent {
 	}
 	
 	public void paint(Graphics g) {
-		int x = border;
+		int x = 0;
 		NodeState[][] nodes = grid.getGridLayout();
 		for (int i = 0; i < nodes.length; i++) {
-			int y = border;
+			int y = 0;
 			for (int j = 0; j < nodes[0].length; j++) {
 				if(nodes[i][j].equals(NodeState.snake)){
-					System.out.println("drawSnake " +i+" "+j);
+					g.drawRect( i + width + x , j + width + y , width , width ); 
 //					g.drawOval( i + width + x , j + width + y , width , width ); 
 				}else if(nodes[i][j].equals(NodeState.food)){
 //					g.drawRect( i + width + x , j + width + y , width , width ); 
 					g.drawOval( i + width + x , j + width + y , width , width ); 
 				}else if(nodes[i][j].equals(NodeState.empty)){
-					g.drawRect( i + width + x , j + width + y , width , width ); 
+//					g.drawRect( i + width + x , j + width + y , width , width ); 
+//					g.drawOval( i + width + x , j + width + y , width , width ); 
 				}
 				y += width;
 			}

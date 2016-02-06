@@ -71,9 +71,9 @@ public class Grid {
 		snakePosition = snake;
 		for (Point point : snakePosition) {
 			setNodeState(point.x, point.y, NodeState.snake);
-			System.out.println(point.x+"  "+ point.y);
+//			System.out.println(point.x+"  "+ point.y);
 		}
-		System.out.println( snakePosition.size());
+//		System.out.println( snakePosition.size());
 	}
 	
 	public void setRandomFoodPosition(){
